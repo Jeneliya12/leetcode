@@ -1,10 +1,10 @@
-import java.uttil.Arrays;
+import java.util.Arrays;
 
 public class ksmallestandlargest {
     public static void main (String [] args) {
         
         int[] nums = {4, 5, 2, 3, 1, 6};
-        k = 2;
+        int k = 2;
         
         Arrays.sort(nums);
         // {1, 2, 3, 4, 5, 6}
