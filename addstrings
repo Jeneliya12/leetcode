@@ -2,11 +2,30 @@ public class AddStrings
 {
     public static void main(String[] args)
     {
-        String str1 = "jenny";
-        String str2 = "grg";
+        // String str1 = "jenny";
+        // String str2 = "grg";
         
-        String combinedString = (str1 + str2);
+        // String combinedString = (str1 + str2);
         
-        System.out.println("the combined string is " + combinedString);
+        // System.out.println("the combined string is " + combinedString);
+
+    }
+}
+
+public class AddStringsAsNumber
+{
+    public static void main(String[] args)
+    {
+        String str1 = "123";
+        String str2 = "456";
+        
+        int num1 = Integer.parseInt(str1);
+        int num2 = Integer.parseInt(str2);
+        
+        int sum = num1 + num2;
+        
+        System.out.println("The sum of two strings as a number is " + sum);
+        
+        
     }
 }
