@@ -1,0 +1,40 @@
+import java.util.Arrays;
+
+public class MinimizeMaxDifference {
+    public static int minimizeMaxDifference(int[] nums) {
+        Arrays.sort(nums);
+
+        int low = 0, high = nums[nums.length - 1] - nums[0], result = high;
+
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+
+            if (isFeasible(nums, mid)) {
+                result = mid; // Update result to the feasible difference
+                high = mid - 1; // Search for a smaller difference
+            } else {
+                low = mid + 1; // Search for a larger difference
+            }
+        }
+
+        return result;
+    }
+
+    // Helper method to check feasibility of a given difference
+    private static boolean isFeasible(int[] nums, int maxDiff) {
+        int prev = nums[0]; // Start with the first element
+
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i] - prev > maxDiff) {
+                prev = nums[i - 1]; // Skip modifying current element
+            }
+        }
+
+        return true; // Feasible
+    }
+
+    public static void main(String[] args) {
+        int[] nums = {3, 9, 12, 16, 20};
+        System.out.println("Minimized Maximum Difference: " + minimizeMaxDifference(nums));
+    }
+}
