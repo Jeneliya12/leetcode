@@ -1,0 +1,65 @@
+import java.util.PriorityQueue;
+
+class ListNode {
+    int val;
+    ListNode next;
+
+    ListNode(int val) {
+        this.val = val;
+        this.next = null;
+    }
+}
+
+public class MergeKSortedLists {
+    public static ListNode mergeKLists(ListNode[] lists) {
+        if (lists == null || lists.length == 0) return null;
+
+        // Min-heap to store the nodes based on their values
+        PriorityQueue<ListNode> heap = new PriorityQueue<>((a, b) -> a.val - b.val);
+
+        // Add the head of each list to the heap
+        for (ListNode list : lists) {
+            if (list != null) {
+                heap.add(list);
+            }
+        }
+
+        ListNode dummy = new ListNode(0); // Dummy node to simplify result list
+        ListNode current = dummy;
+
+        // Process the heap
+        while (!heap.isEmpty()) {
+            ListNode smallest = heap.poll(); // Get the smallest node
+            current.next = smallest; // Add it to the result list
+            current = current.next;
+
+            if (smallest.next != null) {
+                heap.add(smallest.next); // Add the next node from the list
+            }
+        }
+
+        return dummy.next; // Return the merged list
+    }
+
+    public static void main(String[] args) {
+        ListNode[] lists = new ListNode[3];
+        lists[0] = new ListNode(1);
+        lists[0].next = new ListNode(4);
+        lists[0].next.next = new ListNode(5);
+
+        lists[1] = new ListNode(1);
+        lists[1].next = new ListNode(3);
+        lists[1].next.next = new ListNode(4);
+
+        lists[2] = new ListNode(2);
+        lists[2].next = new ListNode(6);
+
+        ListNode result = mergeKLists(lists);
+
+        // Print merged list
+        while (result != null) {
+            System.out.print(result.val + " ");
+            result = result.next;
+        }
+    }
+}
