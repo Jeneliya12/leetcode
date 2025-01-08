@@ -1,6 +1,6 @@
 //415. Add Strings
 class Solution {
-    public String addStrings ( String num1, String num2 ) 
+    public String AddStringsAsNumbers ( String num1, String num2 ) 
     {
         StringBuilder res = new StringBuilder();
 

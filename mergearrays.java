@@ -1,5 +1,5 @@
 import java.util.Arrays;
-public class MergeArrays {
+public class mergearrays {
     public static void main (String[] args)
     {
         int[] array1 = {1, 2, 3};

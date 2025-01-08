@@ -4,7 +4,7 @@
 //sort the char array
 //check if teh sorted char arrys are equal to each other
 import java.util.Arrays;
-public class CheckAnagrams{
+public class checkanagrams{
     public static boolean areAnagrams(String str1, String str2)
     {
         str1 = str1.replace("\\s", " ").toLowerCase();
